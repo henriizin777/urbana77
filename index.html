@@ -3,58 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>URBANA777 | Em Breve</title>
+    <title>URBANA777 | Loja Oficial</title>
     <style>
+        /* ESTILOS DO SITE (CORES E FORMATOS) */
+        :root {
+            --cor-fundo: #0a0a0a;
+            --cor-texto: #ffffff;
+            --cor-destaque: #ff4500;
+            --cor-card: #1a1a1a;
+        }
+        
         body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            font-family: 'Helvetica Neue', Arial, sans-serif; 
             margin: 0; 
             padding: 0; 
-            background-color: #121212; 
-            color: #ffffff;
-            text-align: center; 
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
+            background-color: var(--cor-fundo); 
+            color: var(--cor-texto);
         }
-        h1 { 
-            font-size: 4em; 
-            letter-spacing: 4px; 
-            margin-bottom: 10px;
+        
+        /* CABEÇALHO */
+        header {
+            background-color: #000000;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid var(--cor-destaque);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            letter-spacing: 2px;
             text-transform: uppercase;
         }
-        .destaque {
-            color: #ff4500; /* Cor laranja vibrante para dar contraste */
+        header h1 span { color: var(--cor-destaque); }
+
+        /* BANNER PRINCIPAL */
+        .banner {
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1555529771-835f59bfc50c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;
         }
-        p {
-            font-size: 1.2em;
-            color: #aaaaaa;
-            max-width: 600px;
-            margin-bottom: 30px;
+        .banner h2 { font-size: 2em; margin-bottom: 10px; }
+        .banner p { font-size: 1.2em; color: #cccccc; }
+
+        /* GRID DE PRODUTOS */
+        .produtos-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
         }
-        .btn { 
-            background-color: #ffffff; 
-            color: #121212; 
-            padding: 15px 30px; 
-            text-decoration: none; 
+
+        /* CARTÃO DE CADA PRODUTO */
+        .produto-card {
+            background-color: var(--cor-card);
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .produto-card:hover {
+            transform: translateY(-5px);
+        }
+        .produto-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            background-color: #333; /* Cor de fundo enquanto a imagem não carrega */
+        }
+        .produto-info { padding: 20px; }
+        .produto-titulo { font-size: 1.3em; margin: 0 0 10px; }
+        .produto-preco { 
+            font-size: 1.5em; 
+            font-weight: bold; 
+            color: var(--cor-destaque); 
+            margin-bottom: 20px;
+        }
+        
+        /* BOTÃO DE COMPRAR */
+        .btn-comprar {
+            display: block;
+            background-color: var(--cor-texto);
+            color: var(--cor-fundo);
+            padding: 12px 20px;
+            text-decoration: none;
             font-weight: bold;
-            border-radius: 5px; 
-            transition: background-color 0.3s;
+            border-radius: 5px;
+            text-transform: uppercase;
+            transition: 0.3s;
         }
-        .btn:hover {
-            background-color: #ff4500;
-            color: #ffffff;
+        .btn-comprar:hover {
+            background-color: var(--cor-destaque);
+            color: var(--cor-texto);
+        }
+
+        /* RODAPÉ */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: #000;
+            color: #777;
+            margin-top: 50px;
         }
     </style>
 </head>
 <body>
 
-    <h1>URBANA<span class="destaque">777</span></h1>
-    <p>O nosso site está sendo construído. Em breve, uma nova experiência de compras para você.</p>
-    
-    <!-- Se você tiver um Instagram ou WhatsApp da loja, coloque o link no lugar do # abaixo -->
-    <a href="#" class="btn">Acompanhe as novidades</a>
+    <header>
+        <h1>URBANA<span>777</span></h1>
+    </header>
+
+    <section class="banner">
+        <h2>A NOVA COLEÇÃO CHEGOU</h2>
+        <p>Estilo e atitude para o seu dia a dia.</p>
+    </section>
+
+    <main class="produtos-container">
+        
+        <!-- PRODUTO 1 -->
+        <article class="produto-card">
+            <!-- Substitua o link do src="" pela foto do seu produto -->
+            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Camiseta Urbana" class="produto-img">
+            <div class="produto-info">
+                <h3 class="produto-titulo">Camiseta Urbana Básica</h3>
+                <div class="produto-preco">R$ 79,90</div>
+                <!-- Substitua O_SEU_NUMERO pelo seu WhatsApp (ex: 5511999999999) -->
+                <a href="https://wa.me/55SEUNUMERO?text=Olá!%20Quero%20comprar%20a%20Camiseta%20Urbana%20Básica%20(R$%2079,90)" target="_blank" class="btn-comprar">Comprar no WhatsApp</a>
+            </div>
+        </article>
+
+        <!-- PRODUTO 2 -->
+        <article class="produto-card">
+            <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Moletom 777" class="produto-img">
+            <div class="produto-info">
+                <h3 class="produto-titulo">Moletom 777 Street</h3>
+                <div class="produto-preco">R$ 149,90</div>
+                <a href="https://wa.me/55SEUNUMERO?text=Olá!%20Quero%20comprar%20o%20Moletom%20777%20Street%20(R$%20149,90)" target="_blank" class="btn-comprar">Comprar no WhatsApp</a>
+            </div>
+        </article>
+
+        <!-- PRODUTO 3 -->
+        <article class="produto-card">
+            <img src="https://images.unsplash.com/photo-1582552938357-32b906df40cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Calça Cargo" class="produto-img">
+            <div class="produto-info">
+                <h3 class="produto-titulo">Calça Cargo Black</h3>
+                <div class="produto-preco">R$ 129,90</div>
+                <a href="https://wa.me/55SEUNUMERO?text=Olá!%20Quero%20comprar%20a%20Calça%20Cargo%20Black%20(R$%20129,90)" target="_blank" class="btn-comprar">Comprar no WhatsApp</a>
+            </div>
+        </article>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 URBANA777. Todos os direitos reservados.</p>
+    </footer>
 
 </body>
 </html>
