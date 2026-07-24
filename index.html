@@ -3,160 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>URBANA777 | Loja Oficial</title>
+    <title>Urbana 77 | Oferta Exclusiva</title>
+    
     <style>
-        /* ESTILOS DO SITE (CORES E FORMATOS) */
-        :root {
-            --cor-fundo: #0a0a0a;
-            --cor-texto: #ffffff;
-            --cor-destaque: #ff4500;
-            --cor-card: #1a1a1a;
+        /* Tudo aqui cuida do visual (Cores, tamanhos, botões) */
+        * { box-sizing: border-box; }
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; color: #333; }
+        
+        /* Cabeçalho */
+        header { background: #111; color: #fff; padding: 20px; text-align: center; font-size: 26px; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; }
+        
+        /* Caixote principal que segura a foto e os textos */
+        .container { max-width: 1100px; margin: 30px auto; display: flex; flex-wrap: wrap; background: #fff; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); overflow: hidden; }
+        
+        /* Área da Foto */
+        .product-image { flex: 1; min-width: 320px; padding: 20px; display: flex; justify-content: center; align-items: center; background: #fafafa; }
+        .product-image img { width: 100%; max-width: 500px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        
+        /* Área das Informações (Lado direito) */
+        .product-info { flex: 1; min-width: 320px; padding: 40px 30px; }
+        .product-title { font-size: 28px; margin: 0 0 10px 0; font-weight: 700; line-height: 1.2; }
+        
+        /* Estrelinhas de avaliação */
+        .reviews { color: #f39c12; font-size: 14px; margin-bottom: 20px; font-weight: bold; }
+        
+        /* Preços */
+        .price-box { margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid #eee; }
+        .old-price { text-decoration: line-through; color: #999; font-size: 18px; }
+        .new-price { font-size: 36px; font-weight: 900; color: #27ae60; margin-left: 10px; }
+        .discount-tag { background: #e74c3c; color: white; padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: bold; vertical-align: top; margin-left: 10px; }
+        
+        /* O Botão Mágico de Compra */
+        .buy-button { display: block; width: 100%; background-color: #27ae60; color: white; text-align: center; padding: 20px; font-size: 22px; font-weight: 900; text-decoration: none; border-radius: 8px; text-transform: uppercase; transition: transform 0.2s, background 0.2s; box-shadow: 0 4px 15px rgba(39, 174, 96, 0.4); animation: pulse 2s infinite; }
+        .buy-button:hover { background-color: #219150; transform: translateY(-2px); }
+        
+        /* Selos de Segurança */
+        .security-badges { text-align: center; margin-top: 15px; font-size: 13px; color: #666; font-weight: bold; }
+        
+        /* Descrição */
+        .description { margin-top: 30px; line-height: 1.6; color: #555; }
+        .description h3 { color: #111; font-size: 20px; }
+        .description ul { padding-left: 20px; }
+        .description li { margin-bottom: 10px; }
+        
+        /* Rodapé */
+        footer { text-align: center; padding: 30px; background: #111; color: #888; margin-top: 50px; font-size: 13px; }
+        
+        /* Animação de pulsar o botão para chamar atenção */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
         }
         
-        body { 
-            font-family: 'Helvetica Neue', Arial, sans-serif; 
-            margin: 0; 
-            padding: 0; 
-            background-color: var(--cor-fundo); 
-            color: var(--cor-texto);
-        }
-        
-        /* CABEÇALHO */
-        header {
-            background-color: #000000;
-            padding: 20px;
-            text-align: center;
-            border-bottom: 2px solid var(--cor-destaque);
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-        header h1 span { color: var(--cor-destaque); }
-
-        /* BANNER PRINCIPAL */
-        .banner {
-            text-align: center;
-            padding: 50px 20px;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1555529771-835f59bfc50c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;
-        }
-        .banner h2 { font-size: 2em; margin-bottom: 10px; }
-        .banner p { font-size: 1.2em; color: #cccccc; }
-
-        /* GRID DE PRODUTOS */
-        .produtos-container {
-            max-width: 1200px;
-            margin: 50px auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        /* CARTÃO DE CADA PRODUTO */
-        .produto-card {
-            background-color: var(--cor-card);
-            border-radius: 10px;
-            overflow: hidden;
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-        .produto-card:hover {
-            transform: translateY(-5px);
-        }
-        .produto-img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            background-color: #333; /* Cor de fundo enquanto a imagem não carrega */
-        }
-        .produto-info { padding: 20px; }
-        .produto-titulo { font-size: 1.3em; margin: 0 0 10px; }
-        .produto-preco { 
-            font-size: 1.5em; 
-            font-weight: bold; 
-            color: var(--cor-destaque); 
-            margin-bottom: 20px;
-        }
-        
-        /* BOTÃO DE COMPRAR */
-        .btn-comprar {
-            display: block;
-            background-color: var(--cor-texto);
-            color: var(--cor-fundo);
-            padding: 12px 20px;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
-            text-transform: uppercase;
-            transition: 0.3s;
-        }
-        .btn-comprar:hover {
-            background-color: var(--cor-destaque);
-            color: var(--cor-texto);
-        }
-
-        /* RODAPÉ */
-        footer {
-            text-align: center;
-            padding: 30px;
-            background-color: #000;
-            color: #777;
-            margin-top: 50px;
+        /* Ajuste para Celulares */
+        @media (max-width: 768px) {
+            .container { margin: 0; border-radius: 0; }
+            .product-info { padding: 20px; }
+            .product-title { font-size: 24px; }
+            .new-price { font-size: 32px; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>URBANA<span>777</span></h1>
+        <!-- Nome ou Logo da sua Loja -->
+        URBANA 77
     </header>
 
-    <section class="banner">
-        <h2>A NOVA COLEÇÃO CHEGOU</h2>
-        <p>Estilo e atitude para o seu dia a dia.</p>
-    </section>
+    <div class="container">
+        <!-- ÁREA DA FOTO -->
+        <div class="product-image">
+            <img src="https://via.placeholder.com/600x600?text=Sua+Foto+Aqui" alt="Produto Urbana 77">
+        </div>
 
-    <main class="produtos-container">
-        
-        <!-- PRODUTO 1 -->
-        <article class="produto-card">
-            <!-- Substitua o link do src="" pela foto do seu produto -->
-            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Camiseta Urbana" class="produto-img">
-            <div class="produto-info">
-                <h3 class="produto-titulo">Camiseta Urbana Básica</h3>
-                <div class="produto-preco">R$ 79,90</div>
-                <!-- Substitua O_SEU_NUMERO pelo seu WhatsApp (ex: 5511999999999) -->
-                <a href="https://wa.me/55SEUNUMERO?text=Olá!%20Quero%20comprar%20a%20Camiseta%20Urbana%20Básica%20(R$%2079,90)" target="_blank" class="btn-comprar">Comprar no WhatsApp</a>
+        <!-- ÁREA DO TEXTO E COMPRA -->
+        <div class="product-info">
+            <h1 class="product-title">Nome do Seu Produto Super Exclusivo</h1>
+            
+            <div class="reviews">
+                ⭐⭐⭐⭐⭐ (4.9/5) - Mais de 1.000 vendidos
             </div>
-        </article>
-
-        <!-- PRODUTO 2 -->
-        <article class="produto-card">
-            <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Moletom 777" class="produto-img">
-            <div class="produto-info">
-                <h3 class="produto-titulo">Moletom 777 Street</h3>
-                <div class="produto-preco">R$ 149,90</div>
-                <a href="https://wa.me/55SEUNUMERO?text=Olá!%20Quero%20comprar%20o%20Moletom%20777%20Street%20(R$%20149,90)" target="_blank" class="btn-comprar">Comprar no WhatsApp</a>
+            
+            <div class="price-box">
+                <span class="old-price">R$ 199,90</span>
+                <span class="new-price">R$ 99,90</span>
+                <span class="discount-tag">-50% OFF</span>
             </div>
-        </article>
 
-        <!-- PRODUTO 3 -->
-        <article class="produto-card">
-            <img src="https://images.unsplash.com/photo-1582552938357-32b906df40cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Calça Cargo" class="produto-img">
-            <div class="produto-info">
-                <h3 class="produto-titulo">Calça Cargo Black</h3>
-                <div class="produto-preco">R$ 129,90</div>
-                <a href="https://wa.me/55SEUNUMERO?text=Olá!%20Quero%20comprar%20a%20Calça%20Cargo%20Black%20(R$%20129,90)" target="_blank" class="btn-comprar">Comprar no WhatsApp</a>
+            <!-- BOTÃO DE COMPRA: AQUI ENTRA O LINK DA YAMPI OU CARTPANDA -->
+            <a href="COLE_O_LINK_DO_CHECKOUT_AQUI" class="buy-button" target="_blank">
+                COMPRAR AGORA
+            </a>
+            
+            <div class="security-badges">
+                🔒 Compra Segura | 🚚 Frete Grátis para todo Brasil
             </div>
-        </article>
 
-    </main>
+            <!-- DESCRIÇÃO DO PRODUTO -->
+            <div class="description">
+                <h3>Por que você precisa disso?</h3>
+                <p>Escreva aqui uma frase de efeito para convencer o cliente de que esse produto resolve o problema dele.</p>
+                <ul>
+                    <li><strong>Benefício 1:</strong> Qualidade premium de alto padrão.</li>
+                    <li><strong>Benefício 2:</strong> Design exclusivo que você não acha em outro lugar.</li>
+                    <li><strong>Benefício 3:</strong> Garantia de 7 dias ou seu dinheiro de volta.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
     <footer>
-        <p>&copy; 2026 URBANA777. Todos os direitos reservados.</p>
+        <p>&copy; 2026 Urbana 77. Todos os direitos reservados.</p>
+        <p>Políticas de Privacidade | Termos de Serviço | Contato: suporte@urbana77.com</p>
     </footer>
 
 </body>
